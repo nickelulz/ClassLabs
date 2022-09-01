@@ -36,24 +36,24 @@ public class MatrixRotation  {
 		while (lab.input()) 	// fill the matrix from a data file
 		{
 			System.out.println("Regular:");
-            lab.regular();       // display the matrix
+            		lab.regular();       // display the matrix
 			System.out.println("Upside Down:");
-            lab.upsideDown();     // display the matrix upside down
+            		lab.upsideDown();     // display the matrix upside down
 			System.out.println("Right 90:");
-            lab.right90();        // Rotate the matrix right 90�
+            		lab.right90();        // Rotate the matrix right 90�
 			System.out.println("Left 90:");
-            lab.left90();         // Rotate the matrix left 90�
+            		lab.left90();         // Rotate the matrix left 90�
 			System.out.println("Mirror:");
-            lab.mirror();         // flip the image as in a mirror
+            		lab.mirror();         // flip the image as in a mirror
 			System.out.println("Double Inverted:");
-            lab.doubleInverted(); // Upside down and mirrored
+            		lab.doubleInverted(); // Upside down and mirrored
 		}
 	}
 	
-    private void pause() {
-        System.out.print("\nPress ENTER to continue...");
-        (new java.util.Scanner(System.in)).nextLine();
-    }
+    	private void pause() {
+        	System.out.print("\nPress ENTER to continue...");
+        	(new java.util.Scanner(System.in)).nextLine();
+    	}
 
 	private static void print_img(char[][] img) {
 		for (char[] row: img) {
@@ -126,8 +126,8 @@ public class MatrixRotation  {
 		print_img(rotation);
 	}
 
-    /* Write the left90() method here */
-    void left90() {
+    	/* Write the left90() method here */
+    	void left90() {
 		char[][] rotation = new char[cols][rows];
 		for (int r = 0; r < cols; r++)
 			for (int c = 0; c < rows; c++)
@@ -135,8 +135,8 @@ public class MatrixRotation  {
 		print_img(rotation);
 	}
     
-    /* Write the mirror() method here */
-    void mirror() {
+    	/* Write the mirror() method here */
+    	void mirror() {
 		char[][] img_cpy = Arrays.copyOf(img, img.length);
 		for (int r = 0; r < rows; r++)
 			for (int c = 0; c < cols/2; c++) {
@@ -148,7 +148,7 @@ public class MatrixRotation  {
 		print_img(img_cpy);
 	}
     
-    /* Write the doubleInverted() method here */
+   	/* Write the doubleInverted() method here */
 	void doubleInverted() {
 
 	}
