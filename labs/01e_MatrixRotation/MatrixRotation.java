@@ -29,24 +29,23 @@ public class MatrixRotation  {
 
 	/* Declare instance fields here */
 	private char[][] img;
-	private int rows, cols;
 
 	public static void main(String[] args) {
 		MatrixRotation lab = new MatrixRotation();
 		while (lab.input()) 	// fill the matrix from a data file
 		{
 			System.out.println("Regular:");
-            		lab.regular();       // display the matrix
+			lab.regular();       // display the matrix
 			System.out.println("Upside Down:");
-            		lab.upsideDown();     // display the matrix upside down
+			lab.upsideDown();     // display the matrix upside down
 			System.out.println("Right 90:");
-            		lab.right90();        // Rotate the matrix right 90�
+			lab.right90();        // Rotate the matrix right 90
 			System.out.println("Left 90:");
-            		lab.left90();         // Rotate the matrix left 90�
+			lab.left90();         // Rotate the matrix left 90�
 			System.out.println("Mirror:");
-            		lab.mirror();         // flip the image as in a mirror
+			lab.mirror();         // flip the image as in a mirror
 			System.out.println("Double Inverted:");
-            		lab.doubleInverted(); // Upside down and mirrored
+			lab.doubleInverted(); // Upside down and mirrored
 		}
 	}
 	
@@ -69,6 +68,9 @@ public class MatrixRotation  {
 		System.out.print("Enter image name: ");
 		String image_name = user_in.nextLine();
 
+		if (image_name.equalsIgnoreCase("quit"))
+			return false;
+
 
 		if (!image_names.contains(image_name)) {
 			System.out.println("Invalid image name. Valid names include: " + image_names);
@@ -78,8 +80,8 @@ public class MatrixRotation  {
 				String file_name = "labs/" + "01e_MatrixRotation/" + image_name + ".dat";
 				Scanner file_in = new Scanner(new File(file_name));
 
-				rows = file_in.nextInt();
-				cols = file_in.nextInt();
+				int rows = file_in.nextInt(),
+					cols = file_in.nextInt();
 				int current_row = 0;
 				img = new char[rows][cols];
 
@@ -102,8 +104,8 @@ public class MatrixRotation  {
 
 	/* Write the upsideDown() method here */
 	void upsideDown() {
-		for (int r = rows-1; r >= 0; r--) {
-			for (int c = 0; c < cols; c++)
+		for (int r = img.length-1; r >= 0; r--) {
+			for (int c = 0; c < img[r].length; c++)
 				System.out.print(img[r][c]);
 			System.out.println();
 		}
@@ -112,44 +114,33 @@ public class MatrixRotation  {
 
 	/* Write the right90() method here */
 	void right90() {
-		char[][] rotation = new char[cols][rows];
-		for (int r = 0; r < cols; r++) {
-			for (int c = 0; c < rows; c++)
-				rotation[r][c] = img[c][r];
-			for (int c = 0; c < rows/2; c++) {
-				int dest_c = rows-1-c;
-				char temp_px = rotation[r][c];
-				rotation[r][c] = rotation[r][dest_c];
-				rotation[r][dest_c] = temp_px;
+		char[][] rotation = new char[img[0].length][img.length];
+		for (int r = 0; r < img.length; r++) {
+			for (int c = 0; c < img[r].length; c++) {
+				rotation[c][img.length - r - 1] = img[r][c];
 			}
 		}
 		print_img(rotation);
 	}
 
-    	/* Write the left90() method here */
-    	void left90() {
-		char[][] rotation = new char[cols][rows];
-		for (int r = 0; r < cols; r++)
-			for (int c = 0; c < rows; c++)
-				rotation[r][c] = img[c][r];
+    /* Write the left90() method here */
+	void left90() {
+		char[][] rotation = new char[img[0].length][img.length];
+		for (int r = 0; r < img.length; r++)
+			for (int c = 0; c < img[r].length; c++)
+				rotation[c][r] = img[r][img[r].length - c - 1];
 		print_img(rotation);
 	}
     
-    	/* Write the mirror() method here */
-    	void mirror() {
-		char[][] img_cpy = Arrays.copyOf(img, img.length);
-		for (int r = 0; r < rows; r++)
-			for (int c = 0; c < cols/2; c++) {
-				int dest_c = cols-1-c;
-				char tmp_px = img_cpy[r][c];
-				img_cpy[r][c] = img_cpy[r][dest_c];
-				img_cpy[r][dest_c] = tmp_px;
-			}
-		print_img(img_cpy);
+    /* Write the mirror() method here */
+    void mirror() {
+		for (char[] row: img)
+			System.out.println(new StringBuilder(new String(row)).reverse());
 	}
     
    	/* Write the doubleInverted() method here */
 	void doubleInverted() {
-
+		for (int r = img.length-1; r >= 0; r--)
+			System.out.println(new StringBuilder(new String(img[r])).reverse());
 	}
 }
