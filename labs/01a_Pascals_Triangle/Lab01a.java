@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Lab01a {
 	public static void main( String args[] ) throws IOException {
-		Scanner in = new Scanner(new File("lab01a.dat"));
+		Scanner in = new Scanner(new File("labs/01a_Pascals_Triangle/" + "lab01a.dat"));
 		in.nextInt();
 		while (in.hasNextInt()) {
 			PascalsTriangle t = new PascalsTriangle(in.nextInt());

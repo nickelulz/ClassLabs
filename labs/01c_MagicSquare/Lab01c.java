@@ -4,7 +4,7 @@ import java.io.*;
 
 public class Lab01c {
 	public static void main( String args[] ) throws FileNotFoundException {
-		Scanner in = new Scanner(new File("lab01c.dat"));
+		Scanner in = new Scanner(new File("labs/01c_MagicSquare/" + "lab01c.dat"));
 		while (in.hasNextInt()) {
 			System.out.println(new MagicSquare(in.nextInt()).toString());
 		}

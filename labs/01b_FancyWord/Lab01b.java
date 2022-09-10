@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Lab01b
 {
 	public static void main( String args[] ) throws IOException {
-		Scanner in = new Scanner(new File("lab01b.dat"));
+		Scanner in = new Scanner(new File("labs/01b_FancyWord/" + "lab01b.dat"));
 		in.nextLine();
 		while (in.hasNextLine()) {
 			System.out.println(new FancyWord(in.nextLine()).toString());
