@@ -1,26 +1,15 @@
-//� A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
-//Lab  -
+import java.util.Arrays;
 
-import static java.lang.System.*;
+public class WordTester {
+	public static void main(String[] args) {
+		String[] tests = { "chicken", "alligator", "elephant" };
+		Arrays.stream(tests).forEach(WordTester::test);
+	}
 
-public class WordTester
-{
-	public static void main(String[] args)
-	{
-		//add test cases
-		
-		
-		
-		
-		
-		//add more test cases
-		
-		
-		
-		
-		
+	static void test(String s) {
+		Word w = new Word(s);
+		System.out.println(s);
+		System.out.println("num vowels == " + w.getNumVowels());
+		System.out.println("num chars == " + w.getLength() + "\n\n");
 	}
 }

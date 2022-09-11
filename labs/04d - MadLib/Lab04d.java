@@ -10,8 +10,11 @@ public class Lab04d
 {
 	public static void main( String args[] )
 	{
-		//make a new MadLib
-		
-		out.println("\n");
+		MadLib madlib = new MadLib("story.dat");
+		for (int i = 0; i < 10; i++) {
+			madlib.reset();
+			madlib.generate();
+			System.out.println(madlib);
+		}
 	}
 }

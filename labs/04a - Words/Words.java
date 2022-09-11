@@ -1,5 +1,4 @@
 import java.util.*;
-import java.io.*;
 import java.util.stream.*;
 
 class Words {
@@ -14,36 +13,25 @@ class Words {
 	}
 
 	public void setWords(String wordList) {
-		words = new ArrayList<>(Arrays.stream(wordList.split(" ")).map(s -> new Word(s)).collect(Collectors.toList()));
+		words = (ArrayList<Word>)
+				Arrays.stream(wordList.split(" "))
+						.map(s -> new Word(s))
+						.collect(Collectors.toList());
 	}
 	
 	public int countWordsWithXChars(int size) {
-		int count = 0;
-
-		for (Word w: words)
-			if (w.getLength() >= size)
-				count++;
-
-		return count;
+		return (int) words.stream().filter(w -> w.getLength() == size).count();
 	}
 	
 	public void removeWordsWithXChars(int size) {
-		for (int i = words.size()-1; i >= 0; i--)
-			if (words.get(i).getLength()>=size)
-				words.remove(i);
+		words = (ArrayList<Word>) words.stream().filter(w -> w.getLength() != size).collect(Collectors.toList());
 	}
 
 	public int countWordsWithXVowels(int numVowels) {
-		int count=0;
-
-		for (Word w: words)
-			if (w.getNumVowels() >= numVowels)
-				count++;
-
-		return count;
+		return (int) words.stream().filter(w -> w.getNumVowels() == numVowels).count();
 	}
 	
 	public String toString() {
-	   return words.toString().substring(1, words.toString().length()-1);
+	   return words.toString();
 	}
 }

@@ -1,5 +1,3 @@
-import static java.lang.System.*;
-
 public class Word
 {
 	private String word;
@@ -18,11 +16,7 @@ public class Word
 	}
 	
 	public int getNumVowels() {
-		int count = 0;
-		for (char c: word.toCharArray())
-			if (vowels.contains(c + ""))
-				count++;
-		return count;
+		return (int) word.chars().filter(c -> vowels.contains((char) c + "")).count();
 	}
 	
 	public int getLength() {
@@ -30,6 +24,6 @@ public class Word
 	}
 
 	public String toString() {
-	   return "";
+	   return word;
 	}
 }

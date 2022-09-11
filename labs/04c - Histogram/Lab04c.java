@@ -1,40 +1,30 @@
-//� A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
-//Lab  -
-
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.Collections;
-import static java.lang.System.*;
-
+import java.io.*;
 public class Lab04c
 {
 	public static void main( String args[] ) throws IOException
 	{
-		Histogram test = new Histogram(new char[]{'a','b','c'},"lab04c1.dat");
-		test.loadAndAnalyzeFile();
-		out.println("Letter occurring most : "+test.mostFrequent());
-		out.println("Letter occurring least : "+test.leastFrequent());
-		out.println("\n");
-		out.println(test);
+		char[][] characters = {
+				{ 'a', 'b', 'c'      },
+				{ 'd', 'e', 'a'      },
+				{ 'x', 'a', 'r', 'g' }
+		};
 
+		String[] files = {
+				"lab04c1.dat",
+				"lab04c2.dat",
+				"lab04c3.dat"
+		};
 
-		test = new Histogram(new char[]{'d','e','a'},"lab04c2.dat");
-		test.loadAndAnalyzeFile();
-		out.println("Letter occurring most : "+test.mostFrequent());
-		out.println("Letter occurring least : "+test.leastFrequent());
-		out.println("\n");
-		out.println(test);
+		for (int i = 0; i < 3; i++)
+			test(characters[i], files[i]);
+	}
 
-		test = new Histogram(new char[]{'x','a','r','g'},"lab04c3.dat");
+	static void test(char[] chars, String filename) throws IOException {
+		Histogram test = new Histogram(chars, filename);
 		test.loadAndAnalyzeFile();
-		out.println("Letter occurring most : "+test.mostFrequent());
-		out.println("Letter occurring least : "+test.leastFrequent());
-		out.println("\n");
-		out.println(test);
+		System.out.println("Letter occurring most : "+test.mostFrequent());
+		System.out.println("Letter occurring least : "+test.leastFrequent());
+		System.out.println("\n");
+		System.out.println(test);
 	}
 }

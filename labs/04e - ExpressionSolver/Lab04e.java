@@ -1,17 +1,22 @@
-//� A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
-//Lab  -
+import java.util.*;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-import static java.lang.Integer.*;
-import static java.lang.System.*;
+public class Lab04e {
+	public static void main(String args[]) {
+		String[] expressions = {
+				"3 + 5",
+				"3 * 5",
+				"3 - 5",
+				"3 / 5",
+				"5 / 5 * 2 + 8 / 2 + 5",
+				"5 * 5 + 2 / 2 - 8 + 5 * 5 - 2"
+		};
 
-public class Lab04e
-{
-	public static void main( String args[] )
-	{
+		Arrays.stream(expressions).forEach(Lab04e::test);
+	}
+
+	static void test(String exp) {
+		ExpressionSolver expsolver = new ExpressionSolver(exp);
+		expsolver.solveExpression();
+		System.out.println(exp + " = " + expsolver + "\n");
 	}
 }
