@@ -27,10 +27,6 @@ public class MadLib
 		madlib = "";
 	}
 
-	public MadLib() {
-
-	}
-
 	public MadLib(String fileName)  {
 		loadAdjectives();
 		loadNouns();
