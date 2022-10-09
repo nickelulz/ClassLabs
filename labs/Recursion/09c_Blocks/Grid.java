@@ -29,17 +29,18 @@ public class Grid {
 	}
 
 	private boolean bounds_check(int r, int c) {
-		return r < grid.length && c < grid[r].length && r >= 0 && c >= 0;
+		return r < grid.length && r >= 0 && c < grid[r].length && r >= 0 && c >= 0;
 	}
 
 	private int count_grouping(int r, int c, String search) {
-		if (bounds_check(r, c) && grid[r][c].equals("#")) {
-
+		if (bounds_check(r, c) && grid[r][c].equals(search)) {
+			grid[r][c] = "#";
 			return  count_grouping(r + 1, c, search) +
 					count_grouping(r - 1, c, search) +
 					count_grouping(r, c + 1, search) +
-					count_grouping(r, c - 1, search);
+					count_grouping(r, c - 1, search) + 1;
 		}
+		return 0;
 	}
 
 	public String toString() {

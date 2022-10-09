@@ -1,9 +1,3 @@
-//© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
-//Lab  -
-
 import static java.lang.System.*;
 import java.awt.Color;
 
@@ -11,7 +5,7 @@ public class GridTester
 {
 	public static void main(String[] args)
 	{
-		Grid gridTest = new Grid(2,2);
+		CellGrid gridTest = new CellGrid(2,2);
 		
 		out.println(gridTest.getNumRows());
 		out.println(gridTest.getNumCols());
