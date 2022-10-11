@@ -15,7 +15,7 @@ public class UniquesDupes {
 	public static Set<String> getDupes(String input) {
 		Set<String> uniques = new TreeSet<>();
 		Set<String> dups = new TreeSet<>();
-		for (String s: uniques)
+		for (String s: input.split(" "))
 			if (!uniques.add(s))
 				dups.add(s);
 		return dups;
