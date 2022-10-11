@@ -35,15 +35,17 @@ public class MathSet {
 
 	public Set<Integer> differenceAMinusB() {
 		TreeSet<Integer> a_b = new TreeSet<>(a);
-		for (int n: intersection())
-			a_b.remove(n);
+		for (int n: a)
+			if (b.contains(n))
+				a_b.remove(n);
 		return a_b;
 	}
 
 	public Set<Integer> differenceBMinusA() {
-		TreeSet<Integer> b_a = new TreeSet<>(a);
-		for (int n: intersection())
-			b_a.remove(n);
+		TreeSet<Integer> b_a = new TreeSet<>(b);
+		for (int n: b)
+			if (a.contains(n))
+				b_a.remove(n);
 		return b_a;
 	}
 	
