@@ -22,38 +22,63 @@ public class MathSet {
 		return union;
 	}
 
+    public static Set<Integer> union(Set<Integer> a, Set<Integer> b) {
+		Set<Integer> union = new TreeSet<>(a);
+		union.addAll(b);
+		return union;
+	}
+
 	public Set<Integer> intersection() {
-		Set<Integer> unique_all = union(), intersect = new TreeSet<>();
-		for (Integer n: a)
-			if (!unique_all.add(n))
-				intersect.add(n);
-		for (Integer n: b)
-			if (!unique_all.add(n))
-				intersect.add(n);
-		return intersect;
+		TreeSet<Integer> intersection = new TreeSet<>(union(a,b));
+		intersection.removeAll(differenceAMinusB(a, b));
+		intersection.removeAll(differenceAMinusB(b, a));
+		return intersection;
+	}
+
+    public static Set<Integer> intersection(Set<Integer> a, Set<Integer> b) {
+		TreeSet<Integer> intersection = new TreeSet<>(union(a,b));
+		intersection.removeAll(differenceAMinusB(a, b));
+		intersection.removeAll(differenceAMinusB(b, a));
+		return intersection;
 	}
 
 	public Set<Integer> differenceAMinusB() {
 		TreeSet<Integer> a_b = new TreeSet<>(a);
-		for (int n: a)
-			if (b.contains(n))
-				a_b.remove(n);
+		a_b.removeAll(b);
+		return a_b;
+	}
+
+	public static Set<Integer> differenceAMinusB(Set<Integer> a, Set<Integer> b) {
+		TreeSet<Integer> a_b = new TreeSet<>(a);
+		a_b.removeAll(b);
 		return a_b;
 	}
 
 	public Set<Integer> differenceBMinusA() {
 		TreeSet<Integer> b_a = new TreeSet<>(b);
-		for (int n: b)
-			if (a.contains(n))
-				b_a.remove(n);
+		b_a.removeAll(a);
+		return b_a;
+	}
+
+    public static Set<Integer> differenceBMinusA(Set<Integer> a, Set<Integer> b) {
+		TreeSet<Integer> b_a = new TreeSet<>(b);
+        b_a.removeAll(a);
 		return b_a;
 	}
 	
 	public Set<Integer> symmetricDifference() {
-		TreeSet<Integer> sym_diff = new TreeSet<>(differenceAMinusB());
+		TreeSet<Integer> sym_diff = new TreeSet<>();
+		sym_diff.addAll(differenceAMinusB());
 		sym_diff.addAll(differenceBMinusA());
 		return sym_diff;
 	}	
+
+    public static Set<Integer> symmetricDifference(Set<Integer> a, Set<Integer> b) {
+		TreeSet<Integer> sym_diff = new TreeSet<>();
+		sym_diff.addAll(differenceAMinusB(a,b));
+		sym_diff.addAll(differenceBMinusA(a,b));
+		return sym_diff;
+	}
 	
 	public String toString() {
 		return "Set one " + a + "\n" +	"Set two " + b +  "\n";
