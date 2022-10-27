@@ -1,16 +1,18 @@
-//© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
-//Lab  -
-
 import static java.lang.System.*;
 
 public class Word implements Comparable<Word>
 {
-	//add an instance variable and a constructor
+    private String str;
 
-	//add a compareTo
+    public Word(String str) {
+        this.str = str;
+    }
 
-	//add a toString
+    public int compareTo(Word other) {
+        this.str.compareTo(other.str);
+    }
+
+    public String toString() {
+        return str;
+    }
 }

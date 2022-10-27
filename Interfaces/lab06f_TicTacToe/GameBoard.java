@@ -1,9 +1,3 @@
-//© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
-//Lab  -
-
 import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.Font;
@@ -55,17 +49,15 @@ public class GameBoard extends Canvas implements MouseListener
 		window.drawString("left mouse click == [X]", 420,85);
 		window.drawString("right mouse click == [O]", 420,105);
 
-		window.drawRect(50,50,WIDTH,HEIGHT);
-		window.drawRect(100,50,WIDTH/3,HEIGHT);
-		window.drawRect(50,100,WIDTH,HEIGHT/3);
+		window.drawRect(50, 50,WIDTH,HEIGHT);
+		window.drawRect(100, 50,WIDTH/3,HEIGHT);
+		window.drawRect(50, 100,WIDTH,HEIGHT/3);
 
-		if(mouseClicked)
-		{
+		if (mouseClicked) {
 			markBoard();
 			board.drawGrid(window);
 
-			if(determineWinner(window))
-			{
+			if (determineWinner(window)) {
 			  //make a new board	
 			  
 			  //clear the screen
@@ -92,7 +84,7 @@ public class GameBoard extends Canvas implements MouseListener
 				prevMouseButton=mouseButton;
 			}
 			//if BUTTON3 was pressed and BUTTON3 was not pressed last mouse press
-
+			if (mouseButton == MouseEvent.)
 
 				//save the current button pressed to compare to next button pressed
 				prevMouseButton=mouseButton;				

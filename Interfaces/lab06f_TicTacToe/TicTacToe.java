@@ -1,9 +1,3 @@
-//© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
-//Lab  -
-
 import javax.swing.JFrame;
 
 public class TicTacToe extends JFrame
@@ -15,14 +9,11 @@ public class TicTacToe extends JFrame
 	{
 		super("TIC TAC TOE");
 		setSize(WIDTH,HEIGHT);
-						
 		getContentPane().add(new GameBoard());
-				
 		setVisible(true);
 	}
 	
-	public static void main( String args[] )
-	{
+	public static void main( String args[] ) {
 		TicTacToe run = new TicTacToe();
 	}
 }

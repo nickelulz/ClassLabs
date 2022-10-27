@@ -1,97 +1,73 @@
-//© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
-//Lab  -
-
 import java.util.Arrays;
-import java.util.Scanner;
-import static java.lang.System.*;
-import static java.util.Arrays.*;
 
-public class Student implements Comparable<Student>
-{
-	private String myName;
-	private Grades myGrades;
+public class Student implements Comparable<Student> {
+	private String name;
+	private Grades grades;
 	
-	public Student()
-	{
+	public Student() {
 		setName("");
 		setGrades("");
 	}
 	
-	public Student(String name, String gradeList)
-	{
-
-
-
+	public Student(String name, String gradeList) {
+		this.name = name;
+		this.grades = new Grades(gradeList);
 	}
 	
-	public void setName(String name)
-	{
-
-
+	public void setName(String name) {
+		this.name = name;
 	}	
 	
-	public void setGrades(String gradeList)
-	{
-
-	
+	public void setGrades(String gradeList) {
+		this.grades = new Grades(gradeList);
 	}
 	
-	public void setGrade(int spot, double grade)
-	{
-
-
+	public void setGrade(int spot, double grade) {
+		grades.setGrade(spot, grade);
 	}
 
-	public String getName()
-	{
-		return "";
+	public String getName() {
+		return name;
 	}
 	
-	public int getNumGrades()
-	{
-		return 0;
+	public int getNumGrades() {
+		return grades.getNumGrades();
 	}
 
-	public double getSum()
-	{
-		return 0.0;
+	public double getSum() {
+		return grades.getSum();
 	}
 	
-	public double getAverage()
-	{
-		return 0.0;
+	public double getAverage() {
+		return grades.getSum()/grades.getNumGrades();
 	}
 
-	public double getAverageMinusLow()
-	{
-		return 0.0;
+	public double getAverageMinusLow() {
+		return getAverage()/grades.getSum();
 	}
 	
-	public double getHighGrade()
-	{
-		return 0.0;		
+	public double getHighGrade() {
+		return grades.getHighGrade();
 	}
 	
-	public double getLowGrade()
-	{
-		return 0.0;	
+	public double getLowGrade() {
+		return grades.getLowGrade();
 	}
 
-	public int compareTo(Student param)
-	{
-		return 0;
+	public int compareTo(Student other) {
+		if (this.name.equals(other.name))
+			return this.name.compareTo(other.name);
+		return (int) Math.ceil(this.getAverage() - other.getAverage());
 	}
 	
-	public boolean equals(Object obj)
-	{
-		return false;
+	public boolean equals(Object obj) {
+		if (!(obj instanceof Student))
+			return false;
+		Student other = (Student) obj;
+		return this.name.equals(other.name) && this.grades.equals(other.grades);
 	}
 	
-	public String toString()
-	{
-		return "";
+	public String toString() {
+		return this.name + " = " + grades.toString();
 	}	
 }

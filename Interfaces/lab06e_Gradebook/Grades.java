@@ -1,9 +1,3 @@
-//© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
-//Lab  -
-
 import java.util.Arrays;
 import java.util.Scanner;
 import static java.lang.System.*;
@@ -13,76 +7,39 @@ public class Grades
 {
 	private double[] grades;
 	
-	public Grades()
-	{
+	public Grades() {
 		setGrades("");
 	}
 	
-	public Grades(String gradeList)
-	{
+	public Grades(String gradeList) {
 		setGrades(gradeList);		
 	}
 	
-	public void setGrades(String gradeList)
-	{
-
-
-
-
+	public void setGrades(String gradeList) {
+		grades = Arrays.stream(gradeList.substring(gradeList.indexOf("-")+2).split(" ")).mapToDouble(Double::valueOf).toArray();
 	}
 	
-	public void setGrade(int spot, double grade)
-	{
-
-
-
+	public void setGrade(int spot, double grade) {
+		grades[spot] = grade;
 	}
 	
-	public double getSum()
-	{
-		double sum=0.0;
-
-
-
-
-		return sum;
+	public double getSum() {
+		return Arrays.stream(grades).sum();
 	}
 	
-	public double getLowGrade()
-	{
-		double low = Double.MAX_VALUE;
-
-
-
-
-
-		return low;
+	public double getLowGrade() {
+		return Arrays.stream(grades).min().getAsDouble();
 	}
 	
-	public double getHighGrade()
-	{
-		double high = Double.MIN_VALUE;
-
-
-
-
-
-		return high;
+	public double getHighGrade() {
+		return Arrays.stream(grades).max().getAsDouble();
 	}
 	
-	public int getNumGrades()
-	{
+	public int getNumGrades() {
 		return grades.length;
 	}
 	
-	public String toString()
-	{
-		String output="";
-
-
-
-
-
-		return output;
+	public String toString() {
+		return grades.toString().replace("[|]|,","");
 	}	
 }
