@@ -5,8 +5,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 import java.awt.Canvas;
 
-public class GameBoard extends Canvas implements MouseListener
-{
+public class GameBoard extends Canvas implements MouseListener {
 	private int mouseX, mouseY;
 	private boolean mouseClicked, gameOver;
 	private int mouseButton, prevMouseButton;
@@ -17,8 +16,7 @@ public class GameBoard extends Canvas implements MouseListener
 	private final static int SCALE = 50;
 	private final static int BOARDSIZE = 3;
 
-	public GameBoard()
-	{
+	public GameBoard() {
 		mouseClicked = false;
 		mouseX = mouseY = 0;
 		mouseButton = 0;
@@ -30,17 +28,15 @@ public class GameBoard extends Canvas implements MouseListener
 		setBackground(Color.WHITE);
 	}
 
-	public void mouseClicked(MouseEvent e)
-	{
+	public void mouseClicked(MouseEvent e) {
 		mouseClicked = true;
-		mouseX=e.getX();
-		mouseY=e.getY();
+		mouseX = e.getX();
+		mouseY = e.getY();
 		mouseButton = e.getButton();
 		repaint();
 	}
 
-	public void paint(Graphics window)
-	{
+	public void paint(Graphics window) {
 		window.setColor(Color.white);
 		window.fillRect(0,0,640,480);
 		window.setFont(new Font("TAHOMA",Font.BOLD,12));
@@ -58,54 +54,55 @@ public class GameBoard extends Canvas implements MouseListener
 			board.drawGrid(window);
 
 			if (determineWinner(window)) {
-			  //make a new board	
-			  
+			  //make a new board
 			  //clear the screen
 			}	
 			mouseClicked = false;
 		}
 	}
 
-	public void markBoard()
-	{
-		if(mouseX>=WIDTH/3&&mouseX<=WIDTH+50&&mouseY>=HEIGHT/3&&mouseY<=HEIGHT+50)
-		{
+	public void markBoard() {
+		if (mouseX >= WIDTH / 3 && mouseX <= WIDTH + 50 && mouseY >= HEIGHT / 3 && mouseY <= HEIGHT + 50) {
 			int r = mouseY/50-1;
 			int c = mouseX/50-1;
 			Piece piece = (Piece)board.getSpot(r,c);
-			//if BUTTON1 was pressed and BUTTON1 was not pressed last mouse press
-			if(mouseButton==MouseEvent.BUTTON1&&prevMouseButton!=mouseButton)		//left mouse button pressed
-			{
-				if(piece==null)
-				{
-					board.setSpot(r,c,new Piece(5+c*50+50,5+r*50+50,WIDTH/3-10,HEIGHT/3-10,"X",Color.GREEN));
+			// if BUTTON1 was pressed and BUTTON1 was not pressed last mouse press
+			if (mouseButton == MouseEvent.BUTTON1 && prevMouseButton != mouseButton) {
+				if (piece == null) {
+					board.setSpot(
+						r, c, 
+						new Piece(
+							5 + c * 50 + 50, 
+							5 + r * 50 + 50, 
+							WIDTH / 3 - 10,
+							HEIGHT / 3 - 10,
+							"X", 
+							Color.GREEN
+						)
+					);
 				}
-				//save the current button pressed to compare to next button pressed
-				prevMouseButton=mouseButton;
+				// save the current button pressed to compare to next button pressed
+				prevMouseButton = mouseButton;
 			}
-			//if BUTTON3 was pressed and BUTTON3 was not pressed last mouse press
-			if (mouseButton == MouseEvent.)
-
-				//save the current button pressed to compare to next button pressed
-				prevMouseButton=mouseButton;				
-		
+			// if BUTTON3 was pressed and BUTTON3 was not pressed last mouse press
+			if (mouseButton == MouseEvent.BUTTON3)
+				// save the current button pressed to compare to next button pressed
+				prevMouseButton = mouseButton;
 		}
 	}
 	
-	public boolean determineWinner(Graphics window)
-	{
+	public boolean determineWinner(Graphics window) {
 		String winner="";
-		for (int r = 0; r<board.getNumRows(); r++)
-		{
+		for (int r = 0; r<board.getNumRows(); r++) {
 			Piece row0 = (Piece)board.getSpot(r,0);
 			Piece row1 = (Piece)board.getSpot(r,1);
 			Piece row2 = (Piece)board.getSpot(r,2);
 			
-			if(row0==null||row1==null||row2==null) continue;
+			if (row0 == null || row1 == null || row2 == null) 
+				continue;
 			
-			if(row0.getName().equals(row1.getName())&&row0.getName().equals(row2.getName()))
-			{
-				winner=row0.getName()+" wins horizontally!";
+			if (row0.getName().equals(row1.getName()) && row0.getName().equals(row2.getName())) {
+				winner = row0.getName()+" wins horizontally!";
 				break;
 			}
 		}
