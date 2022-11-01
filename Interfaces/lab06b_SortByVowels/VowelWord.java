@@ -16,7 +16,10 @@ class VowelWord implements Comparable<VowelWord>
 	}
 
 	public int compareTo(VowelWord other) {
-		return other.numVowels() - this.numVowels();
+		if (this.numVowels() != other.numVowels())
+			return this.numVowels() - other.numVowels();
+		else
+			return this.str.compareTo(other.str);
 	}
 
 	public String toString() {

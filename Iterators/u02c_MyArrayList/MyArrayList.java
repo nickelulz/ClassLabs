@@ -50,10 +50,10 @@ public class MyArrayList<T> implements Iterable<T> {
       return -1;
    }
 	
-   public boolean remove(T value) {
-      T[] new_arr = (T[]) new Object[count-1];
-      for (int i = 0; i < )
-   }
+//   public boolean remove(T value) {
+//      T[] new_arr = (T[]) new Object[count-1];
+//      for (int i = 0; i < )
+//   }
 	
    public boolean isEmpty() {
       return false;
