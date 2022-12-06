@@ -9,7 +9,7 @@ public class Word implements Comparable<Word>
     }
 
     public int compareTo(Word other) {
-        this.str.compareTo(other.str);
+        return this.str.length()- other.str.length();
     }
 
     public String toString() {

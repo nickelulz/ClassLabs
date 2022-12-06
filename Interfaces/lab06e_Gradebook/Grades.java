@@ -40,6 +40,6 @@ public class Grades
 	}
 	
 	public String toString() {
-		return grades.toString().replace("[|]|,","");
+		return Arrays.toString(grades).replace("\\[|\\]|,","");
 	}	
 }

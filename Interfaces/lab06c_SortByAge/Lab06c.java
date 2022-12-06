@@ -7,12 +7,12 @@ import static java.lang.System.*;
 
 public class Lab06c {
 	public static void main (String[] args) throws IOException {
-		Scanner in = new Scanner(new File("lab06c.dat"));
+		Scanner in = new Scanner(new File("Interfaces/lab06c_SortByAge/" + "lab06c.dat"));
 		ArrayList<Person> people = new ArrayList<>();
 		in.nextLine();
 		while (in.hasNextLine())
 			people.add(new Person(in.nextInt(), in.nextInt(), in.nextInt(), in.nextLine()));
 		Collections.sort(people);
-		System.out.println(people);
+		System.out.println(people.toString().replaceAll("\\[|\\]|,",""));
 	}
 }

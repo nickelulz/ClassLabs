@@ -22,6 +22,6 @@ public class Person implements Comparable<Person> {
   }
 
   public String toString() {
-     return String.format("%6s\tDOB:%d-%2d-%2d\n", name, year, month, day);
+     return String.format("%6s\tDOB:%d-%02d-%02d\n", name, year, month, day);
   }
 }
