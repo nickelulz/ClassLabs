@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/labs/01a_Pascals_Triangle" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/labs/01b_FancyWord" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/labs/01c_MagicSquare" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/labs/01d_SpiralMatrix" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/labs/01e_MatrixRotation" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/labs/04a - Words" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/labs/04b - NumberAnalyzer" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/labs/04c - Histogram" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/labs/04d - MadLib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/labs/04e - ExpressionSolver" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/labs/u02c_iterators" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/labs/Recursion/09a_GCF" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/labs/Recursion/09b_AtCounter" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/labs/Recursion/09c_Blocks" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/labs/Recursion/09d_GarbageCollector" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/labs/Recursion/09e_Permutations" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/labs/Recursion/09f_Sierpinski's Triangle" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/labs/u02c_MyArrayList" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/labs/Sets" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Interfaces/lab06a_SortByLength" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Interfaces/lab06b_SortByVowels" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Interfaces/lab06c_SortByAge" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Interfaces/lab06d_WebsiteSorter" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Interfaces/lab06e_Gradebook" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Interfaces/lab06f_TicTacToe" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Iterators/u02c_MyArrayList" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Iterators/u02c_iterators" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Sets" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Stacks" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Abstract Classes" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ArrayList" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Hash Tables" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Interfaces" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Iterators" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Maps" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Queues" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Recursion" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

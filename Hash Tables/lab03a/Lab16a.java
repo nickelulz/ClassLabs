@@ -8,9 +8,9 @@ public class Lab16a {
   public static void main (String[] args) {
 		try {
 			// make a new table
-			HashTable table = new HashTable(100);
+			HashTable table = new HashTable(1000);
 			// read from the file
-			Scanner file = new Scanner(new File("lab16a.dat"));
+			Scanner file = new Scanner(new File("lab16a999.dat"));
 			// load stuff into the table
 			while (file.hasNextInt())
 				table.add(file.nextInt());

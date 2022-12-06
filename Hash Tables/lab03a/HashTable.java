@@ -14,7 +14,7 @@ public class HashTable {
    }
 
    public void add(Object obj) {
-      System.out.println("add");
+      // System.out.println("add");
       // Calculate the index of the bucket where it would be stored
       int index = obj.hashCode() % table.length;
       // If there isnt already a list there add one
@@ -27,9 +27,14 @@ public class HashTable {
 
    public String toString() {
       String output = "HASHTABLE\n";
-      for (int i = 0; i < table.length; i++);
-         for (int a = 0; a < table[i].size(); a++)
-            output += table[i].get(a) + " ";
+      for (int i = 0; i < table.length; i++) {
+         output += "Bucket " + i + ": ";
+         if (table[i] != null) {
+            for (int a = 0; a < table[i].size(); a++)
+               output += table[i].get(a) + " ";
+         }
+         output += "\n";
+      }
       return output;
    }
 

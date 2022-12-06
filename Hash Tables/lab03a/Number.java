@@ -3,6 +3,7 @@ public class Number
 	private int theValue;
 	
 	public Number(int value) {
+		this.theValue = value;
 	}	
 	
 	public int getValue() {
