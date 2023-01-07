@@ -27,9 +27,13 @@ class LinkTest
 		return getSum() / list.size();
 	}
 
-	public Comparable getLargest() {}
+	public Comparable getLargest() {
+		return list.stream().max((a,b) -> a.getValue().compareTo(b.getValue())).get().getValue();
+	}
 
-	public Comparable getSmallest() {}
+	public Comparable getSmallest() {
+		return list.stream().min((a,b) -> a.getValue().compareTo(b.getValue())).get().getValue();
+	}
 
 	public String toString() {
 		String output="";
