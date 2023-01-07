@@ -62,7 +62,7 @@ public class BasicList
 			ListNode found = null;
 			for (ListNode node = front; node != null; node = node.getNext())
 				if (node.getNext().getValue().equals(o))
-					found = node.getNext();
+					found = node;
 			removeAfter(found);
 			size--;
 
