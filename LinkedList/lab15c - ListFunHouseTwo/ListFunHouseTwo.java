@@ -13,8 +13,14 @@ public class ListFunHouseTwo
 			return;
 		}
 
-		ListNode[] list = (ListNode[]) stream().toArray(ListNode[]::new);
-		list[list.length-1].setNext(new ListNode(data, null));
+		getEnd().setNext(new ListNode(data, null));
+	}
+
+	public ListNode getEnd() {
+		ListNode node = theList;
+		while (node.getNext() != null)
+			node = node.getNext();
+		return node;
 	}
 	
 	//this method will return the number of nodes present in list
@@ -31,8 +37,8 @@ public class ListFunHouseTwo
 	//this method will create a new node with the same value as the last node and add this
 	//new node at the end.  Once finished, the last node will occur twice.
 	public void doubleLast() {
-		ListNode[] list = stream().toArray(ListNode[]::new);
-		list[list.length-1].setNext(new ListNode(list[list.length-1].getValue(), null));
+		ListNode end = getEnd();
+		end.setNext(new ListNode(end.getValue(), null));
 	}
 	
 	//method skipEveryOther will remove every other node
@@ -50,10 +56,20 @@ public class ListFunHouseTwo
 
 	//this method will remove every xth node in the list
 	public void removeXthNode(int x) {
-		ListNode[] list = (ListNode[]) stream().toArray(ListNode[]::new);
-		for (int i = 1; i < list.length; i++)
+		ListNode node = theList;
+		int i = 0;
+		while (node != null) {
 			if (i % x == 1)
-				list[i-1].setNext(i < list.length-1 ? list[i+1] : null);
+				removeAfter(node);
+			node = node.getNext();
+		}
+	}
+
+	private void removeAfter(ListNode before) {
+		if (before.getNext() == null)
+			return;
+
+		before.setNext(before.getNext().getNext());
 	}
 
 	//this method will return a String containing the entire list
@@ -67,12 +83,5 @@ public class ListFunHouseTwo
 		int index = 0;
 		for (ListNode node = theList; node != null; node = node.getNext(), index++)
 			action.accept(node, index);
-	}
-
-	public Stream<ListNode> stream() {
-		Stream.Builder<ListNode> nodeStream = Stream.builder();
-		for (ListNode node = theList; node != null; node = node.getNext())
-			nodeStream.add(node);
-		return nodeStream.build();
 	}
 }

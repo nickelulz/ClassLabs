@@ -6,8 +6,8 @@ public class HistoList
 {
    private HistoNode front;
 
-	// addLetter will add a new node to the front for let if let does not exist
-	// addLetter will bump up the count if let already exists
+	// add a new node to the front for let if let does not exist
+	// bump up the count if let already exists
 	public void addLetter(char let) {
 		if (front == null) {
 			front = new HistoNode(let, 1, null);

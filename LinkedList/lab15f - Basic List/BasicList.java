@@ -67,14 +67,29 @@ public class BasicList
 			size--;
 
 			return true;
-		} catch (IndexOutOfBoundsException ie) {
+		} 
+
+		catch (IndexOutOfBoundsException ie) {
 			return false;
 		}
 	}
 
 	// This removes the node AFTER the one specified
-	private void removeAfter(ListNode before) throws IndexOutOfBoundsException {
-		before.setNext(before.getNext().getNext());
+	private Comparable removeAfter(ListNode before) throws IllegalStateException {
+		if (before.getNext() == back) {
+			before.setNext(null);
+			back = before;
+		}
+
+		try {
+			Comparable removed = before.getNext().getValue(); 
+			before.setNext(before.getNext().getNext());
+			return removed;
+		} 
+
+		catch (NullPointerException e) {
+			throw new IllegalStateException();
+		}
 	}
 
 	public Comparable removeFirst() {
@@ -91,6 +106,18 @@ public class BasicList
 		back = array[array.length-2];
 		size--;
 		return old;
+	}
+
+	public Comparable removeLast2() {
+		ListNode beforeLast = front;
+		for (; front.getNext() != last; front = front.getNext());
+		try {
+			Comparable old = removeAfter(beforeLast);
+			size--;
+			return old;
+		} catch (IllegalStateException e) {
+			return null;
+		}
 	}
 
 	public Comparable set(int index, Comparable element) {
