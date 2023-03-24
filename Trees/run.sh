@@ -26,7 +26,7 @@ clear
 
 echo "making: ${dir}/${main}.java"
 
-if [ "$2" = "-v" or "$2" == "--verbose" ]; then
+if [ "$2" = "-v" -or "$2" == "--verbose" ]; then
   echo cd ./${dir}
 fi
 
